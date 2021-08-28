@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import Header from '../components/Header'
 import { useRouter } from "next/dist/client/router";
 import StarRating from 'react-star-rating'
+import Head from 'next/head'
 
 function BuyingPage() {
     
