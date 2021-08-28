@@ -1,18 +1,20 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Header from '../components/Header'
 import { useRouter } from "next/dist/client/router";
 import StarRating from 'react-star-rating'
 
-function BuyingPage({Data}) {
-
+function BuyingPage() {
+    
     const router = useRouter()
-
-
     const {id} = (router.query);
+    const [Datum, setData] = useState([])
     
-    const Datum = Data[id];
-    // console.log(Datum);
     
+    fetch('https://bhavik-amazon-api.herokuapp.com/getOneData?id='+id)
+    .then(response => response.json())
+    .then(data => setData(data));
+
+
     return (
         <div>
             <Header/>
@@ -95,15 +97,20 @@ function BuyingPage({Data}) {
 
 export default BuyingPage
 
-export async function getServerSideProps() {
-    const Data = await fetch('https://bhavik-amazon-api.herokuapp.com//getallData')
-    .then(
-      (res) => res.json()
-    );
+// export async function getServerSideProps() {
+
+//     const router = useRouter()
+//     const {id} = (router.query);
     
-    return{
-      props: {
-        Data: Data
-      }
-    }
-}
+
+//     const Data = await fetch('http://localhost:1985/getOneData?id='+id)
+//     .then(
+//       (res) => res.json()
+//     );
+    
+//     return{
+//       props: {
+//         Data: Data
+//       }
+//     }
+// }

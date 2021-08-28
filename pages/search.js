@@ -11,30 +11,31 @@ function search({Data}) {
     const router = useRouter()
     const {query} = (router.query);
     const [stupidChanceSystem, setstupidChanceSystem] = useState('')
-
+    
     // console.log(SearchResult);
+    const [SearchedData, setSearchedData] = useState([])
+    // fetch
 
-    var FilteredData =[]
+    // fetch('https://api.npms.io/v2/search?q='+query)
+    fetch('https://bhavik-amazon-api.herokuapp.com/getallDataSearch?search='+query)
+    
+    .then(response => response.json())
+    .then(data => setSearchedData(data));
+	console.log(SearchedData);
 
-    // Search Algorithm
-    Data.forEach(Datum => {
-        const DatumTitle = ((Datum.title).toLowerCase() + ' ' + (Datum.make).toLowerCase());
-        DatumTitle.replace
+    
+    
 
-        const queryArray = query.split(' ');
-        var totalNumberMached = 0;
-        queryArray.forEach(queryAr => {
-            // console.log(DatumTitle, queryAr);
-            if (DatumTitle.includes(queryAr.toLowerCase()) && queryAr != ''){
-                totalNumberMached +=1;
-            }
-        });
-        if (totalNumberMached >= 1) {
-            FilteredData.push(Datum);
-        }
-        
-    });
-    FilteredData = FilteredData.sort((a, b) => (a.price > b.price ? 1 : -1));
+
+
+
+
+
+
+
+
+
+    // FilteredData = FilteredData.sort((a, b) => (a.price > b.price ? 1 : -1));
 
 
 
@@ -70,23 +71,18 @@ function search({Data}) {
             <div className="Results p-5">
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 " id= "searchResultDivToAddAndRemoveResulteOnFilter">
                     {/* <HomePageItem/> */}
-                    {/* {stupidChanceSystem == 'x'?  */}
-                    {FilteredData.map(({id,image,make,price,rating,title},i) => {
+                    {SearchedData.map(({id,image,make,price,rating,title},i) => {
                         console.log('lol');
                         return <HomePageItem
-                        key= {id}
-                        id= {id}
-                        name= {title}
-                        image= {image}
-                           make= {make}
-                           price= {price}
-                           rating= {rating}
+                        	key= {id}
+                        	id= {id}
+                        	name= {title}
+                        	image= {image}
+                           	make= {make}
+                           	price= {price}
+                           	rating= {rating}
                            />
-                        })}{/* : FilteredData.map(({id,image,make,price,rating,title}) => {
-                        console.log('olo');
-                        return <h1>olo</h1>
-                    })
-                   }*/}
+                        })}
                 </div>
             </div>
         </div>
@@ -95,15 +91,15 @@ function search({Data}) {
 
 export default search
 
-export async function getServerSideProps() {
-    const Data = await fetch('https://bhavik-amazon-api.herokuapp.com//getallData')
-    .then(
-      (res) => res.json()
-    );
+// export async function getServerSideProps() {
+//     const Data = await fetch('http://localhost:1985/getallData')
+//     .then(
+//       (res) => res.json()
+//     );
     
-    return{
-      props: {
-        Data: Data
-      }
-    }
-}
+//     return{
+//       props: {
+//         Data: Data
+//       }
+//     }
+// }
