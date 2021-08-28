@@ -22,14 +22,13 @@ function Header() {
     }
 
 
-
     // router.push("/")
     return (
         <div class="header md:h-16 h-auto bg-gray-900 items-center sticky">
             <div className="flex items-center">
 
                 <div class="logo w-30 h-16 ml-10">
-                    <img class="w-30 h-16 pt-1.5 object-contained" src="https://www.mabaya.com/wp-content/uploads/2019/10/amazon_PNG25.png" alt=""/>
+                    <img class="w-30 h-16 pt-1.5 object-contained" src="./img/Amazon logo.png" alt=""/>
                 </div>
                 <div class="search hidden md:flex ml-5">
                     
