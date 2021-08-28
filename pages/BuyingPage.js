@@ -17,6 +17,10 @@ function BuyingPage() {
 
     return (
         <div>
+            <Head>
+                <title>Buy - {Datum.title}</title>
+                <link rel="icon" href="https://i.dlpng.com/static/png/5385003-amazon-arrow-png-pictures-trzcacakrs-amazon-arrow-png-2000_2000_preview.png" />
+            </Head>
             <Header/>
             <div className="p-5 lg:flex block">
                 <div class="produc-image flex-1 bg-white rounded-2xl flex items-center justify-center relative item-center p-3 max-w-[700px]">

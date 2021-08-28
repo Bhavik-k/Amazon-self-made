@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Image from 'next/image'
 import { useRouter } from "next/dist/client/router";
+import Head from 'next/head'
 
 function Banner() {
   const router = useRouter()

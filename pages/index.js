@@ -10,8 +10,8 @@ export default function Home({gifts, electronics,jewelery,menClothing,womenCloth
   return (
     <div className="bg-gray-100">
       <Head>
-        <title>paperfld</title>
-        {/* <link rel="icon" href="https://ebenezersuites.com/wp-content/uploads/2016/06/airbnb-logo-266x300@2x.png" /> */}
+        <title>Amazon Clone</title>
+        <link rel="icon" href="https://i.dlpng.com/static/png/5385003-amazon-arrow-png-pictures-trzcacakrs-amazon-arrow-png-2000_2000_preview.png" />
       </Head>
 
       {/* header */}

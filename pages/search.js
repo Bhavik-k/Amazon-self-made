@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import Header from '../components/Header'
 import HomePageItem from '../components/HomePageItem'
 import { useRouter } from "next/dist/client/router";
+import Head from 'next/head'
 
 
 
@@ -23,16 +24,6 @@ function search({Data}) {
     .then(data => setSearchedData(data));
 	console.log(SearchedData);
 
-    
-    
-
-
-
-
-
-
-
-
 
 
     // FilteredData = FilteredData.sort((a, b) => (a.price > b.price ? 1 : -1));
@@ -41,6 +32,10 @@ function search({Data}) {
 
     return (
         <div>
+            <Head>
+                <title>Search - {query}</title>
+                <link rel="icon" href="https://i.dlpng.com/static/png/5385003-amazon-arrow-png-pictures-trzcacakrs-amazon-arrow-png-2000_2000_preview.png" />
+            </Head>
             <Header/>
             <div className="flex border-b-2 py-1 px-4">
                 <div className="px-3 py-1 border-2 rounded-full mr-2 cursor-pointer hover:shadow-md active:scale-95"
